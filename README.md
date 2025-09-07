@@ -74,3 +74,7 @@ Keep the core surface minimal: avoid adding provider-specific concepts to the fa
 interface. This should be clear through a conversation in an issue.
 
 Feel free to open an issue if you spot something iffy or have a hot tip :shrug:
+
+## License
+
+Apache-2.0. See [LICENSE](./LICENSE). If applicable, see [NOTICE](./NOTICE).
