@@ -70,7 +70,7 @@ project (subject to change):
 
 Bug reports and PRs are welcome. Please open an issue first for discussion.
 
-Keep the core surface minimal: avoid adding provider-specific concepts to the fascade unless they belong in the standard
+Keep the core surface minimal: avoid adding provider-specific concepts to the facade unless they belong in the standard
 interface. This should be clear through a conversation in an issue.
 
 Feel free to open an issue if you spot something iffy or have a hot tip :shrug:
