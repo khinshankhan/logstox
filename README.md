@@ -59,7 +59,7 @@ This is not a comprehensive outline nor necessarily the order of priorities but 
 project (subject to change):
 
 - [x] Stellar README
-- [ ] Core interfaces and fields
+- [x] Core interfaces and fields
 - [ ] Add logging backend provider (eg zap).
 - [ ] Add stdlib backend provider
 - [ ] Data sink: jsonl encoder, file sink
