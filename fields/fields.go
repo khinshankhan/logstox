@@ -1,4 +1,4 @@
-package logstox
+package fields
 
 import (
 	"context"
