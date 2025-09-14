@@ -61,6 +61,7 @@ project (subject to change):
 - [x] Stellar README.
 - [x] Core standardized interfaces.
 - [x] Core standardized fields.
+- [x] Implement adapter functionality to be able to convert for standard.
 - [ ] Add logging backend provider (eg zap).
 - [ ] Add stdlib backend provider.
 - [ ] Data sink: jsonl encoder, file sink.
