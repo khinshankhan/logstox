@@ -58,13 +58,14 @@ What it isn't:
 This is not a comprehensive outline nor necessarily the order of priorities but it's currently the way I'll tackle this
 project (subject to change):
 
-- [x] Stellar README
-- [x] Core interfaces and fields
+- [x] Stellar README.
+- [x] Core standardized interfaces.
+- [x] Core standardized fields.
 - [ ] Add logging backend provider (eg zap).
-- [ ] Add stdlib backend provider
-- [ ] Data sink: jsonl encoder, file sink
+- [ ] Add stdlib backend provider.
+- [ ] Data sink: jsonl encoder, file sink.
 - [ ] Data sink: s3 sink?
-- [ ] Examples
+- [ ] Examples.
 
 ## Contributing
 
