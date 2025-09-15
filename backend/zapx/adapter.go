@@ -11,7 +11,7 @@ import (
 	"go.uber.org/zap/zapcore"
 )
 
-func ToZap(f fields.Field) zap.Field {
+func ToZap(f fields.Field) ZapField {
 	switch f.Kind() {
 	case fields.FieldKindString:
 		return zap.String(f.Key, f.Value.(string))
