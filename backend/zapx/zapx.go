@@ -18,6 +18,7 @@ type Backend struct {
 	// Options.TimeLayout takes precedence over this.
 	TimeLayout string
 	AddSource  bool
+	CallerSkip int
 }
 
 // Interface satisfaction (compile-time assertions).
@@ -59,8 +60,12 @@ func (b Backend) New(o logstox.Options[ZapField]) logstox.Logger[ZapField] {
 	var base *zap.Logger
 	var opts []zap.Option
 	if b.AddSource || o.AddSource {
+		skip := b.CallerSkip
+		if skip == 0 {
+			skip = 1
+		}
 		// AddCallerSkip(2) to point at the user's callsite (skipping our wrapper method).
-		opts = append(opts, zap.AddCaller(), zap.AddCallerSkip(2))
+		opts = append(opts, zap.AddCaller(), zap.AddCallerSkip(skip))
 	}
 
 	if o.Writer != nil {
