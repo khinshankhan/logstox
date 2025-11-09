@@ -18,6 +18,9 @@ type Backend struct {
 	// Options.TimeLayout takes precedence over this.
 	TimeLayout string
 	AddSource  bool
+	// CallerSkip controls the number of stack frames to skip when reporting the caller.
+	// If zero, defaults to 1, which typically points to the caller of the logger method.
+	// Increase this value if wrapping the logger in additional abstraction layers.
 	CallerSkip int
 }
 
