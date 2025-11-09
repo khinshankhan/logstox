@@ -59,8 +59,8 @@ func (b Backend) New(o logstox.Options[ZapField]) logstox.Logger[ZapField] {
 	var base *zap.Logger
 	var opts []zap.Option
 	if b.AddSource || o.AddSource {
-		// AddCallerSkip(1) to point at the user's callsite (skipping our wrapper method).
-		opts = append(opts, zap.AddCaller(), zap.AddCallerSkip(1))
+		// AddCallerSkip(2) to point at the user's callsite (skipping our wrapper method).
+		opts = append(opts, zap.AddCaller(), zap.AddCallerSkip(2))
 	}
 
 	if o.Writer != nil {
