@@ -67,7 +67,7 @@ func (b Backend) New(o logstox.Options[ZapField]) logstox.Logger[ZapField] {
 		if skip == 0 {
 			skip = 1
 		}
-		// AddCallerSkip(2) to point at the user's callsite (skipping our wrapper method).
+		// AddCallerSkip to point at the user's callsite (skipping wrapper methods).
 		opts = append(opts, zap.AddCaller(), zap.AddCallerSkip(skip))
 	}
 
