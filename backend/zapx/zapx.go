@@ -18,6 +18,10 @@ type Backend struct {
 	// Options.TimeLayout takes precedence over this.
 	TimeLayout string
 	AddSource  bool
+	// CallerSkip controls the number of stack frames to skip when reporting the caller.
+	// If zero, defaults to 1, which typically points to the caller of the logger method.
+	// Increase this value if wrapping the logger in additional abstraction layers.
+	CallerSkip int
 }
 
 // Interface satisfaction (compile-time assertions).
@@ -59,8 +63,12 @@ func (b Backend) New(o logstox.Options[ZapField]) logstox.Logger[ZapField] {
 	var base *zap.Logger
 	var opts []zap.Option
 	if b.AddSource || o.AddSource {
-		// AddCallerSkip(2) to point at the user's callsite (skipping our wrapper method).
-		opts = append(opts, zap.AddCaller(), zap.AddCallerSkip(2))
+		skip := b.CallerSkip
+		if skip == 0 {
+			skip = 1
+		}
+		// AddCallerSkip to point at the user's callsite (skipping wrapper methods).
+		opts = append(opts, zap.AddCaller(), zap.AddCallerSkip(skip))
 	}
 
 	if o.Writer != nil {
