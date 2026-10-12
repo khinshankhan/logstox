@@ -54,6 +54,10 @@ func (b Backend) New(o logstox.Options[ZapField]) logstox.Logger[ZapField] {
 	enc.StacktraceKey = ""
 	cfg.EncoderConfig = enc
 
+	// zap's configs report the caller by default, which without the skip below
+	// points at this package's wrapper methods. Only report it when asked.
+	cfg.DisableCaller = !(b.AddSource || o.AddSource)
+
 	// Level override from Options if provided/ mapped.
 	if zl, ok := toZapLevel(o.Level); ok {
 		cfg.Level = zap.NewAtomicLevelAt(zl)
